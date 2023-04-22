@@ -2,16 +2,13 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
 		<script>
 			window.onload = () => {
 				const stt = document.getElementById("stt"),
 					bto = document.getElementById("bto"),
 					btc = document.getElementById("btc");
-				setInterval(() => {
-					fetch("http://171.6.167.183:8000/?req=status")
-						.then((res) => res.text())
-						.then(data => stt.innerHTML = data);
+				setInterval(async () => {
+					console.log(await (await fetch("http://171.6.167.183:8000/?req=status")).text())
 				}, 2000);
 
 				bto.onclick = () => fetch("http://171.6.167.183:8000/?req=start");
