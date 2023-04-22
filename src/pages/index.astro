@@ -7,11 +7,11 @@
         const stt = document.getElementById("stt"),
           bto = document.getElementById("bto"),
           btc = document.getElementById("btc");
-        setInterval(async () => {
-          stt.innerHTML = await (
-            await fetch("http://171.6.167.183:8000/?req=status")
-          ).text();
-        }, 1000);
+        // setInterval(async () => {
+        //   stt.innerHTML = await (
+        //     await fetch("http://171.6.167.183:8000/?req=status")
+        //   ).text();
+        // }, 1000);
 
         bto.onclick = () => fetch("http://171.6.167.183:8000/?req=start");
         btc.onclick = () => fetch("http://171.6.167.183:8000/?req=stop");
