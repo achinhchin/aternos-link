@@ -1,48 +1,48 @@
 <html>
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script>
-			window.onload = () => {
-				const stt = document.getElementById("stt"),
-					bto = document.getElementById("bto"),
-					btc = document.getElementById("btc");
-				setInterval(() => {
-					fetch("http://171.6.167.183:8000/?req=status")
-						.then((res) => res.text())
-						.then(data => stt.innerHTML = data);
-				}, 2000);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script>
+      window.onload = () => {
+        const stt = document.getElementById("stt"),
+          bto = document.getElementById("bto"),
+          btc = document.getElementById("btc");
+        setInterval(async () => {
+          stt.innerHTML = await (
+            await fetch("http://171.6.167.183:8000/?req=status")
+          ).text();
+        }, 1000);
 
-				bto.onclick = () => fetch("http://171.6.167.183:8000/?req=start");
-				btc.onclick = () => fetch("http://171.6.167.183:8000/?req=stop");
-			};
-		</script>
-	</head>
-	<body class="bg-[#fcfdf6]">
-		<center>
-			<h1 class="text-4xl font-bold mt-3 text-[#1a1c19]">
-				Aternos Server Link
-			</h1>
-			<div class="bg-[#acf4a2] p-4 w-fit mt-5 rounded-3xl shadow-md">
-				<div class="text-[#002203] text-3xl shadow-lg rounded-lg p-3">
-					<b class="inline">Status:</b>
-					<p class="inline" id="stt">connecting to server...</p>
-				</div>
-				<div class="mt-6 flex flex-row justify-around align-middle">
-					<div
-						id="bto"
-						class="rounded-lg shadow-md p-2.5 text-lg bg-[#296b29] text-[#ffffff] cursor-pointer duration-300 ease-out hover:scale-110"
-					>
-						Start Server
-					</div>
-					<div
-						id="btc"
-						class="rounded-lg shadow-md p-2.5 text-lg bg-[#ba1a1a] text-[#ffffff] cursor-pointer duration-300 ease-out hover:scale-110"
-					>
-						Stop Server
-					</div>
-				</div>
-			</div>
-		</center>
-	</body>
+        bto.onclick = () => fetch("http://171.6.167.183:8000/?req=start");
+        btc.onclick = () => fetch("http://171.6.167.183:8000/?req=stop");
+      };
+    </script>
+  </head>
+  <body class="bg-[#fcfdf6]">
+    <center>
+      <h1 class="text-4xl font-bold mt-3 text-[#1a1c19]">
+        Aternos Server Link
+      </h1>
+      <div class="bg-[#acf4a2] p-4 w-fit mt-5 rounded-3xl shadow-md">
+        <div class="text-[#002203] text-3xl shadow-lg rounded-lg p-3">
+          <b class="inline">Status:</b>
+          <p class="inline" id="stt">connecting to server...</p>
+        </div>
+        <div class="mt-6 flex flex-row justify-around align-middle">
+          <div
+            id="bto"
+            class="rounded-lg shadow-md p-2.5 text-lg bg-[#296b29] text-[#ffffff] cursor-pointer duration-300 ease-out hover:scale-110"
+          >
+            Start Server
+          </div>
+          <div
+            id="btc"
+            class="rounded-lg shadow-md p-2.5 text-lg bg-[#ba1a1a] text-[#ffffff] cursor-pointer duration-300 ease-out hover:scale-110"
+          >
+            Stop Server
+          </div>
+        </div>
+      </div>
+    </center>
+  </body>
 </html>
