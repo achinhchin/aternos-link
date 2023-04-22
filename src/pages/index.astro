@@ -8,13 +8,13 @@
 					bto = document.getElementById("bto"),
 					btc = document.getElementById("btc");
 				setInterval(() => {
-					fetch("http://localhost:8000/?req=status")
+					fetch("http://171.6.167.183:8000/?req=status")
 						.then((res) => res.text())
 						.then(data => stt.innerHTML = data);
 				}, 2000);
 
-				bto.onclick = () => fetch("http://localhost:8000/?req=start");
-				btc.onclick = () => fetch("http://localhost:8000/?req=stop");
+				bto.onclick = () => fetch("http://171.6.167.183:8000/?req=start");
+				btc.onclick = () => fetch("http://171.6.167.183:8000/?req=stop");
 			};
 		</script>
 	</head>
